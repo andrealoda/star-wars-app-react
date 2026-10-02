@@ -1,5 +1,40 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getFilms } from "../services/api";
+
+
 function FilmList() {
-  return <h1>Lista Film</h1>;
+  const [films, setFilms] = useState([]);
+
+  useEffect(() => {
+    getFilms().then(data => {
+      setFilms(data)
+    });
+  }, []);
+
+  return (
+    <div>
+      <h1>Film</h1>
+      <div className="row">
+        {films.map(film => (
+          <div className="col-md-4 mb-3" key={film.id}>
+            <div className="card h-100">
+              <img
+                src={film.immagine ? `http://localhost:8000/storage/${film.immagine}` : '/img/placeholder-film-thumb.png'}
+                className="card-img-top img-thumbnail"
+                alt={film.titolo}
+                style={{ height: '200px', objectFit: 'contain' }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{film.titolo}</h5>
+                <Link to={`/film/${film.id}`} className="btn btn-primary">Dettagli</Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default FilmList;
