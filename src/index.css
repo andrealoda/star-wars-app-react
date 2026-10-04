@@ -1,0 +1,46 @@
+:root {
+    --sw-bg: #050b1a;
+    --sw-surface: #0b1730;
+    --sw-border: #1c3a6b;
+    --sw-cyan: #4fd8ff;
+    --sw-cyan-soft: #9fe8ff;
+    --sw-text: #e6f1ff;
+    --sw-muted: #8aa3c7;
+}
+
+body {
+    --bs-body-bg: var(--sw-bg);
+    --bs-body-color: var(--sw-text);
+    --bs-body-font-family: 'Exo 2', sans-serif;
+    background-color: var(--sw-bg);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+a {
+    color: var(--sw-cyan);
+}
+
+a:hover {
+    color: var(--sw-cyan-soft);
+}
+
+.card {
+    --bs-card-bg: var(--sw-surface);
+    --bs-card-border-color: var(--sw-border);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--sw-cyan);
+    --bs-btn-border-color: var(--sw-cyan);
+    --bs-btn-color: #04101f;
+    --bs-btn-hover-bg: var(--sw-cyan-soft);
+    --bs-btn-hover-border-color: var(--sw-cyan-soft);
+    --bs-btn-hover-color: #04101f;
+    --bs-btn-active-bg: var(--sw-cyan-soft);
+    --bs-btn-active-border-color: var(--sw-cyan-soft);
+    --bs-btn-active-color: #04101f;
+}
