@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getSpecie } from '../services/api';
+import DetailButton from "../components/DetailButton";
 
 function SpecieList() {
   const [specie, setSpecie] = useState([]);
@@ -26,7 +26,7 @@ function SpecieList() {
               />
               <div className="card-body">
                 <h5 className="card-title">{singolaSpecie.nome}</h5>
-                <Link to={`/specie/${singolaSpecie.id}`} className="btn btn-primary">Dettagli</Link>
+                <DetailButton to={`/specie/${singolaSpecie.id}`} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getPersonaggi } from '../services/api';
+import DetailButton from "../components/DetailButton";
 
 function PersonaggiList() {
     const [personaggi, setPersonaggi] = useState([]);
@@ -26,7 +26,7 @@ function PersonaggiList() {
                             />
                             <div className="card-body">
                                 <h5 className="card-title">{persona.nome}</h5>
-                                <Link to={`/personaggi/${persona.id}`} className="btn btn-primary">Dettagli</Link>
+                                <DetailButton to={`/personaggi/${persona.id}`} />
                             </div>
                         </div>
                     </div>

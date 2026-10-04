@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getPianeti } from '../services/api';
+import DetailButton from "../components/DetailButton";
 
 function PianetiList() {
   const [pianeti, setPianeti] = useState([]);
@@ -26,7 +26,7 @@ function PianetiList() {
               />
               <div className="card-body">
                 <h5 className="card-title">{pianeta.nome}</h5>
-                <Link to={`/pianeti/${pianeta.id}`} className="btn btn-primary">Dettagli</Link>
+                <DetailButton to={`/pianeti/${pianeta.id}`} />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getFilms } from "../services/api";
+import DetailButton from "../components/DetailButton";
 
 
 function FilmList() {
@@ -27,7 +27,7 @@ function FilmList() {
               />
               <div className="card-body">
                 <h5 className="card-title">{film.titolo}</h5>
-                <Link to={`/film/${film.id}`} className="btn btn-primary">Dettagli</Link>
+                <DetailButton to={`/film/${film.id}`} />
               </div>
             </div>
           </div>

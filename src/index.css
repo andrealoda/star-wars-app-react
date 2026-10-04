@@ -45,4 +45,26 @@ a:hover {
     --bs-btn-active-color: #04101f;
 }
 
+/* Pulsante "Dettagli": contorno sottile, sfondo appena accennato, si illumina al passaggio */
+.btn-holo {
+    --bs-btn-color: var(--sw-cyan);
+    --bs-btn-bg: rgba(79, 216, 255, 0.08);
+    --bs-btn-border-color: var(--sw-border);
+    --bs-btn-hover-color: #04101f;
+    --bs-btn-hover-bg: var(--sw-cyan);
+    --bs-btn-hover-border-color: var(--sw-cyan);
+    --bs-btn-active-color: #04101f;
+    --bs-btn-active-bg: var(--sw-cyan-soft);
+    --bs-btn-active-border-color: var(--sw-cyan-soft);
+    --bs-btn-focus-shadow-rgb: 79, 216, 255;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 50rem;
+    padding-inline: 1rem;
+}
 
+.btn-holo:hover {
+    box-shadow: 0 0 14px rgba(79, 216, 255, 0.45);
+}
