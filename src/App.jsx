@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import FilmList from './pages/FilmList';
 import FilmDetail from './pages/FilmDetail';
@@ -13,19 +14,22 @@ import PianetiDetail from './pages/PianetiDetail';
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/film" element={<FilmList />} />
-          <Route path="/film/:id" element={<FilmDetail />} />
-          <Route path="/personaggi" element={<PersonaggiList />} />
-          <Route path="/personaggi/:id" element={<PersonaggiDetail />} />
-          <Route path="/specie" element={<SpecieList />} />
-          <Route path="/specie/:id" element={<SpecieDetail />} />
-          <Route path="/pianeti" element={<PianetiList />} />
-          <Route path="/pianeti/:id" element={<PianetiDetail />} />
-        </Routes>
+      <div className="d-flex flex-column min-vh-100">
+        <Header />
+        <div className="container mt-4 flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/film" element={<FilmList />} />
+            <Route path="/film/:id" element={<FilmDetail />} />
+            <Route path="/personaggi" element={<PersonaggiList />} />
+            <Route path="/personaggi/:id" element={<PersonaggiDetail />} />
+            <Route path="/specie" element={<SpecieList />} />
+            <Route path="/specie/:id" element={<SpecieDetail />} />
+            <Route path="/pianeti" element={<PianetiList />} />
+            <Route path="/pianeti/:id" element={<PianetiDetail />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
