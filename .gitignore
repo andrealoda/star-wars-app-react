@@ -25,5 +25,5 @@ dist-ssr
 
 # Video scaricati da siti di stock: restano in locale, non vanno nel repository.
 # Solo il video generico creato per il progetto viene versionato.
-public/video/*.mp4
-!public/video/hero-default.mp4
+public/video/*
+!public/video/hero-default.*
