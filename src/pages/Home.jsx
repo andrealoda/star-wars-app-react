@@ -1,5 +1,13 @@
+import Hero from '../components/Hero';
+import SectionCards from '../components/SectionCards';
+
 function Home() {
-  return <h1>Star Wars App</h1>;
+    return (
+        <>
+            <Hero />
+            <SectionCards />
+        </>
+    );
 }
 
 export default Home;

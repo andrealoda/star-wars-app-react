@@ -16,7 +16,7 @@ function Footer() {
                         </div>
                         <p className="small text-secondary mb-2">
                             Archiviamo la galassia dal 2026.<br />
-                            Software per la catalogazione di mondi, specie ed equipaggi.
+                            WebApp per la catalogazione di mondi, specie ed equipaggi.
                         </p>
                         <p className="small text-secondary mb-0">
                             <i className="bi bi-geo-alt me-1"></i>Bengaluru, Karnataka, India<br />
@@ -24,33 +24,38 @@ function Footer() {
                         </p>
                     </div>
 
-                    {/* Colonna 2: link alle sezioni e al backoffice */}
+                    {/* Colonna 2: link alle sezioni e all'area riservata */}
                     <div className="col-md-6">
                         <h2 className="h6 mb-3">Navigazione</h2>
-                        <ul className="list-unstyled small mb-0">
-                            <li className="mb-2">
+                        <ul className="list-unstyled small mb-0 d-flex flex-column" style={{ gap: '0.425rem' }}>
+                            <li>
+                                <Link className="link-secondary text-decoration-none" to="/">
+                                    <i className="bi bi-house me-2"></i>Home
+                                </Link>
+                            </li>
+                            <li>
                                 <Link className="link-secondary text-decoration-none" to="/film">
                                     <i className="bi bi-film me-2"></i>Film
                                 </Link>
                             </li>
-                            <li className="mb-2">
+                            <li>
                                 <Link className="link-secondary text-decoration-none" to="/personaggi">
                                     <i className="bi bi-person-lines-fill me-2"></i>Personaggi
                                 </Link>
                             </li>
-                            <li className="mb-2">
+                            <li>
                                 <Link className="link-secondary text-decoration-none" to="/specie">
                                     <i className="bi bi-bug-fill me-2"></i>Specie
                                 </Link>
                             </li>
-                            <li className="mb-2">
+                            <li>
                                 <Link className="link-secondary text-decoration-none" to="/pianeti">
                                     <i className="bi bi-globe-europe-africa me-2"></i>Pianeti
                                 </Link>
                             </li>
                             <li>
                                 <a className="link-secondary text-decoration-none" href={BACKOFFICE_URL}>
-                                    <i className="bi bi-gear-fill me-2"></i>Backoffice
+                                    <i className="bi bi-gear-fill me-2"></i>Area riservata
                                 </a>
                             </li>
                         </ul>
