@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
-
 const heroVideo = import.meta.env.VITE_HERO_VIDEO || '/video/hero-default.mp4';
 
 function Hero() {
     return (
         <section className="hero">
-            <video className="hero-video" src={heroVideo} autoPlay muted loop palysInline />
+            <video className="hero-video" src={heroVideo} autoPlay muted loop playsInline />
             <div className="hero-overlay"></div>
 
             <div className="hero-content container text-center">
