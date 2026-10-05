@@ -58,6 +58,19 @@ function PersonaggiDetail() {
           <Link to={`/specie/${persona.species.id}`}>{persona.species.nome}</Link>
         </p>
       )}
+
+      {persona.films.length > 0 && (
+        <>
+          <h3>Film</h3>
+          <ul>
+            {persona.films.map(film => (
+              <li key={film.id}>
+                <Link to={`/film/${film.id}`}>{film.titolo}</Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
