@@ -12,14 +12,14 @@ function Footer() {
                     <div className="col-md-6">
                         <div className="d-flex align-items-center gap-2 mb-2">
                             <img src="/img/logo-front.svg" alt="" height="32" />
-                            <h2 className="h6 mb-0">Orbita Digital Archives Pvt. Ltd.</h2>
+                            <h2 className="h6 mb-0">Orbita Digital Ltd.</h2>
                         </div>
                         <p className="small text-secondary mb-2">
                             Archiviamo la galassia dal 2026.<br />
                             WebApp per la catalogazione di mondi, specie ed equipaggi.
                         </p>
                         <p className="small text-secondary mb-0">
-                            <i className="bi bi-geo-alt me-1"></i>Bengaluru, Karnataka, India<br />
+                            <i className="bi bi-geo-alt me-1"></i>Brescia, Italia<br />
                             <i className="bi bi-envelope me-1"></i>info@example.com
                         </p>
                     </div>
