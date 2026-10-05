@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPersonaggio } from '../services/api';
 import Loader from '../components/Loader';
+import BackButton from '../components/BackButton';
 
 function PersonaggiDetail() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function PersonaggiDetail() {
 
   return (
     <div>
+      <BackButton to="/personaggi" />
       <h1>{persona.nome}</h1>
       <img
         src={persona.immagine ? `http://localhost:8000/storage/${persona.immagine}` : '/img/placeholder-personaggio.png'}

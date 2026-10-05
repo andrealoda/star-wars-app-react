@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSpecieSingola } from '../services/api';
 import Loader from '../components/Loader';
+import BackButton from '../components/BackButton';
 
 function SpecieDetail() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function SpecieDetail() {
 
   return (
     <div>
+      <BackButton to="/specie" />
       <h1>{specie.nome}</h1>
       <img
         src={specie.immagine ? `http://localhost:8000/storage/${specie.immagine}` : '/img/placeholder-specie.png'}

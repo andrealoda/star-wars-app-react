@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPianeta } from '../services/api';
 import Loader from '../components/Loader';
+import BackButton from '../components/BackButton';
 
 function PianetiDetail() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function PianetiDetail() {
 
   return (
     <div>
+      <BackButton to="/pianeti" />
       <h1>{pianeta.nome}</h1>
       <img
         src={pianeta.immagine ? `http://localhost:8000/storage/${pianeta.immagine}` : '/img/placeholder-pianeta.png'}

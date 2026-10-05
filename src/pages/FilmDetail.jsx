@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getFilm } from '../services/api';
 
 import Loader from '../components/Loader';
+import BackButton from '../components/BackButton';
 
 function FilmDetail() {
   const { id } = useParams();
@@ -20,6 +21,7 @@ function FilmDetail() {
 
   return (
     <div>
+      <BackButton to="/film" />
       <h1>{film.titolo}</h1>
       <img
         src={film.immagine ? `http://localhost:8000/storage/${film.immagine}` : '/img/placeholder-film.png'}
