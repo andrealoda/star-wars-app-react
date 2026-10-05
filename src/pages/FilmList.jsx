@@ -2,21 +2,35 @@ import { useState, useEffect } from "react";
 import { getFilms, STORAGE_URL } from "../services/api";
 import DetailButton from "../components/DetailButton";
 import Loader from "../components/Loader";
+import NotFound from "./NotFound";
 
 
 function FilmList() {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     getFilms()
-      .then(data => setFilms(data))
+      .then(data => {
+        if (data) {
+          setFilms(data);
+        } else {
+          setNotFound(true);
+        }
+      })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
     return <Loader />;
   }
+
+  if (notFound) {
+    return <NotFound />;
+  }
+
+
 
   return (
     <div>

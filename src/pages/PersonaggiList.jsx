@@ -2,20 +2,34 @@ import { useState, useEffect } from 'react';
 import { getPersonaggi, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
 import Loader from "../components/Loader";
+import NotFound from "./NotFound";
 
 function PersonaggiList() {
     const [personaggi, setPersonaggi] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
         getPersonaggi()
-            .then(data => setPersonaggi(data))
+            .then(data => {
+                if (data) {
+                    setPersonaggi(data);
+                } else {
+                    setNotFound(true);
+                }
+            })
             .finally(() => setLoading(false));
     }, []);
 
     if (loading) {
         return <Loader />;
     }
+
+    if (notFound) {
+        return <NotFound />;
+    }
+
+
 
     return (
         <div>

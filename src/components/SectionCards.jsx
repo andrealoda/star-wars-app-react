@@ -9,10 +9,10 @@ function SectionCards() {
     const [nPianeti, setNPianeti] = useState(null);
 
     useEffect(() => {
-        getFilms().then(data => setNFilm(data.length));
-        getPersonaggi().then(data => setNPersonaggi(data.length));
-        getSpecie().then(data => setNSpecie(data.length));
-        getPianeti().then(data => setNPianeti(data.length));
+        getFilms().then(data => setNFilm(data ? data.length : null));
+        getPersonaggi().then(data => setNPersonaggi(data ? data.length : null));
+        getSpecie().then(data => setNSpecie(data ? data.length : null));
+        getPianeti().then(data => setNPianeti(data ? data.length : null));
     }, []);
 
     const sezioni = [

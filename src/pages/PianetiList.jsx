@@ -2,20 +2,34 @@ import { useState, useEffect } from 'react';
 import { getPianeti, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
 import Loader from "../components/Loader";
+import NotFound from "./NotFound";
 
 function PianetiList() {
   const [pianeti, setPianeti] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     getPianeti()
-      .then(data => setPianeti(data))
+      .then(data => {
+        if (data) {
+          setPianeti(data);
+        } else {
+          setNotFound(true);
+        }
+      })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
     return <Loader />;
   }
+
+  if (notFound) {
+    return <NotFound />;
+  }
+
+
 
   return (
     <div>
