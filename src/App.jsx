@@ -11,6 +11,7 @@ import SpecieDetail from './pages/SpecieDetail';
 import PianetiList from './pages/PianetiList';
 import PianetiDetail from './pages/PianetiDetail';
 import PageContainer from './components/PageContainer';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/specie/:id" element={<SpecieDetail />} />
               <Route path="/pianeti" element={<PianetiList />} />
               <Route path="/pianeti/:id" element={<PianetiDetail />} />
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
 

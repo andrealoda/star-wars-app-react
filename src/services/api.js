@@ -1,4 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL;
+export const STORAGE_URL = import.meta.env.VITE_STORAGE_URL;
 
 function getData(endpoint) {
     return fetch(`${API_URL}/${endpoint}`)
@@ -9,7 +10,6 @@ function getData(endpoint) {
 
 
 //funzioni che costruiscono la stringa di endpoint che poi viene passata a getData che la interpola in API_URL/endpoint
-
 
 export function getFilms() {
   return getData('films');

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPianeti } from '../services/api';
+import { getPianeti, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
 
 function PianetiList() {
@@ -19,7 +19,7 @@ function PianetiList() {
           <div className="col-md-4 mb-3" key={pianeta.id}>
             <div className="card h-100">
               <img
-                src={pianeta.immagine ? `http://localhost:8000/storage/${pianeta.immagine}` : '/img/placeholder-pianeta-thumb.png'}
+                src={pianeta.immagine ? `${STORAGE_URL}/${pianeta.immagine}` : '/img/placeholder-pianeta-thumb.png'}
                 className="card-img-top img-thumbnail"
                 alt={pianeta.nome}
                 style={{ height: '200px', objectFit: 'contain' }}

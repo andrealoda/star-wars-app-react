@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getFilms } from "../services/api";
+import { getFilms, STORAGE_URL } from "../services/api";
 import DetailButton from "../components/DetailButton";
 
 
@@ -20,7 +20,7 @@ function FilmList() {
           <div className="col-md-4 mb-3" key={film.id}>
             <div className="card h-100">
               <img
-                src={film.immagine ? `http://localhost:8000/storage/${film.immagine}` : '/img/placeholder-film-thumb.png'}
+                src={film.immagine ? `${STORAGE_URL}/${film.immagine}` : '/img/placeholder-film-thumb.png'}
                 className="card-img-top img-thumbnail"
                 alt={film.titolo}
                 style={{ height: '200px', objectFit: 'contain' }}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getSpecie } from '../services/api';
+import { getSpecie, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
 
 function SpecieList() {
@@ -19,7 +19,7 @@ function SpecieList() {
           <div className="col-md-4 mb-3" key={singolaSpecie.id}>
             <div className="card h-100">
               <img
-                src={singolaSpecie.immagine ? `http://localhost:8000/storage/${singolaSpecie.immagine}` : '/img/placeholder-specie-thumb.png'}
+                src={singolaSpecie.immagine ? `${STORAGE_URL}/${singolaSpecie.immagine}` : '/img/placeholder-specie-thumb.png'}
                 className="card-img-top img-thumbnail"
                 alt={singolaSpecie.nome}
                 style={{ height: '200px', objectFit: 'contain' }}

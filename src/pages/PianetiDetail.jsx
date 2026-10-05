@@ -1,18 +1,28 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getPianeta } from '../services/api';
+import { getPianeta, STORAGE_URL } from '../services/api';
 import Loader from '../components/Loader';
+import NotFound from './NotFound';
 import BackButton from '../components/BackButton';
 
 function PianetiDetail() {
   const { id } = useParams();
   const [pianeta, setPianeta] = useState(null);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     getPianeta(id).then(data => {
-      setPianeta(data);
+      if (data) {
+        setPianeta(data);
+      } else {
+        setNotFound(true);
+      }
     });
   }, [id]);
+
+  if (notFound) {
+    return <NotFound />;
+  }
 
   if (!pianeta) {
     return <Loader />;
@@ -23,7 +33,7 @@ function PianetiDetail() {
       <BackButton to="/pianeti" />
       <h1>{pianeta.nome}</h1>
       <img
-        src={pianeta.immagine ? `http://localhost:8000/storage/${pianeta.immagine}` : '/img/placeholder-pianeta.png'}
+        src={pianeta.immagine ? `${STORAGE_URL}/${pianeta.immagine}` : '/img/placeholder-pianeta.png'}
         className="img-fluid img-thumbnail mb-3"
         alt={pianeta.nome}
         style={{ maxHeight: '300px', objectFit: 'contain' }}
@@ -32,14 +42,18 @@ function PianetiDetail() {
       <p><strong>Terreno:</strong> {pianeta.terreno}</p>
       <p><strong>Popolazione:</strong> {pianeta.popolazione}</p>
 
-      <h3>Abitanti</h3>
-      <ul>
-        {pianeta.people.map(persona => (
-          <li key={persona.id}>
-            <Link to={`/personaggi/${persona.id}`}>{persona.nome}</Link>
-          </li>
-        ))}
-      </ul>
+      {pianeta.people.length > 0 && (
+        <>
+          <h3>Abitanti</h3>
+          <ul>
+            {pianeta.people.map(persona => (
+              <li key={persona.id}>
+                <Link to={`/personaggi/${persona.id}`}>{persona.nome}</Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }

@@ -1,18 +1,28 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getPersonaggio } from '../services/api';
+import { getPersonaggio, STORAGE_URL } from '../services/api';
 import Loader from '../components/Loader';
+import NotFound from './NotFound';
 import BackButton from '../components/BackButton';
 
 function PersonaggiDetail() {
   const { id } = useParams();
   const [persona, setPersona] = useState(null);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     getPersonaggio(id).then(data => {
-      setPersona(data);
+      if (data) {
+        setPersona(data);
+      } else {
+        setNotFound(true);
+      }
     });
   }, [id]);
+
+  if (notFound) {
+    return <NotFound />;
+  }
 
   if (!persona) {
     return <Loader />;
@@ -23,7 +33,7 @@ function PersonaggiDetail() {
       <BackButton to="/personaggi" />
       <h1>{persona.nome}</h1>
       <img
-        src={persona.immagine ? `http://localhost:8000/storage/${persona.immagine}` : '/img/placeholder-personaggio.png'}
+        src={persona.immagine ? `${STORAGE_URL}/${persona.immagine}` : '/img/placeholder-personaggio.png'}
         className="img-fluid img-thumbnail mb-3"
         alt={persona.nome}
         style={{ maxHeight: '300px', objectFit: 'contain' }}

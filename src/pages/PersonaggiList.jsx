@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getPersonaggi } from '../services/api';
+import { getPersonaggi, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
 
 function PersonaggiList() {
@@ -19,7 +19,7 @@ function PersonaggiList() {
                     <div className="col-md-4 mb-3" key={persona.id}>
                         <div className="card h-100">
                             <img
-                                src={persona.immagine ? `http://localhost:8000/storage/${persona.immagine}` : '/img/placeholder-personaggio-thumb.png'}
+                                src={persona.immagine ? `${STORAGE_URL}/${persona.immagine}` : '/img/placeholder-personaggio-thumb.png'}
                                 className="card-img-top img-thumbnail"
                                 alt={persona.nome}
                                 style={{ height: '200px', objectFit: 'contain' }}
