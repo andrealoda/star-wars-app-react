@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 import { getSpecie, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
+import Loader from "../components/Loader";
 
 function SpecieList() {
   const [specie, setSpecie] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getSpecie().then(data => {
-      setSpecie(data);
-    });
+    getSpecie()
+      .then(data => setSpecie(data))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div>

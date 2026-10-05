@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { getFilms, STORAGE_URL } from "../services/api";
 import DetailButton from "../components/DetailButton";
+import Loader from "../components/Loader";
 
 
 function FilmList() {
   const [films, setFilms] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getFilms().then(data => {
-      setFilms(data)
-    });
+    getFilms()
+      .then(data => setFilms(data))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div>

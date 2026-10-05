@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react';
 import { getPianeti, STORAGE_URL } from '../services/api';
 import DetailButton from "../components/DetailButton";
+import Loader from "../components/Loader";
 
 function PianetiList() {
   const [pianeti, setPianeti] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getPianeti().then(data => {
-      setPianeti(data);
-    });
+    getPianeti()
+      .then(data => setPianeti(data))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div>
