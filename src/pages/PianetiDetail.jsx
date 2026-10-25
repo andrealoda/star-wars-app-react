@@ -38,9 +38,9 @@ function PianetiDetail() {
         alt={pianeta.nome}
         style={{ maxHeight: '300px', objectFit: 'contain' }}
       />
-      <p><strong>Clima:</strong> {pianeta.clima}</p>
-      <p><strong>Terreno:</strong> {pianeta.terreno}</p>
-      <p><strong>Popolazione:</strong> {pianeta.popolazione}</p>
+      <p><strong>Clima:</strong> {pianeta.clima ?? 'Sconosciuto'}</p>
+      <p><strong>Terreno:</strong> {pianeta.terreno ?? 'Sconosciuto'}</p>
+      <p><strong>Popolazione:</strong> {pianeta.popolazione ?? 'Sconosciuto'}</p>
 
       {pianeta.people.length > 0 && (
         <>

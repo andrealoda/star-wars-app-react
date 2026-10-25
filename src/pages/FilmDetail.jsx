@@ -41,8 +41,8 @@ function FilmDetail() {
       />
       <p>{film.sinossi}</p>
       <p><strong>Episodio:</strong> {film.episodio}</p>
-      <p><strong>Regista:</strong> {film.regista}</p>
-      <p><strong>Data di uscita:</strong> {film.data_uscita}</p>
+      <p><strong>Regista:</strong> {film.regista ?? 'Sconosciuto'}</p>
+      <p><strong>Data di uscita:</strong> {film.data_uscita ?? 'Sconosciuto'}</p>
 
       {film.people.length > 0 && (
         <>

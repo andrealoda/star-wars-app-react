@@ -38,7 +38,7 @@ function SpecieDetail() {
         alt={specie.nome}
         style={{ maxHeight: '300px', objectFit: 'contain' }}
       />
-      <p><strong>Lingua:</strong> {specie.lingua}</p>
+      <p><strong>Lingua:</strong> {specie.lingua ?? 'Sconosciuto'}</p>
 
       {specie.people.length > 0 && (
         <>

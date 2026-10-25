@@ -38,12 +38,12 @@ function PersonaggiDetail() {
         alt={persona.nome}
         style={{ maxHeight: '300px', objectFit: 'contain' }}
       />
-      <p><strong>Altezza:</strong> {persona.altezza}</p>
-      <p><strong>Peso:</strong> {persona.peso}</p>
-      <p><strong>Colore capelli:</strong> {persona.colore_capelli}</p>
-      <p><strong>Colore occhi:</strong> {persona.colore_occhi}</p>
-      <p><strong>Anno di nascita:</strong> {persona.anno_nascita}</p>
-      <p><strong>Genere:</strong> {persona.genere}</p>
+      <p><strong>Altezza:</strong> {persona.altezza ?? 'Sconosciuto'}</p>
+      <p><strong>Peso:</strong> {persona.peso ?? 'Sconosciuto'}</p>
+      <p><strong>Colore capelli:</strong> {persona.colore_capelli ?? 'Sconosciuto'}</p>
+      <p><strong>Colore occhi:</strong> {persona.colore_occhi ?? 'Sconosciuto'}</p>
+      <p><strong>Anno di nascita:</strong> {persona.anno_nascita ?? 'Sconosciuto'}</p>
+      <p><strong>Genere:</strong> {persona.genere ?? 'Sconosciuto'}</p>
 
       {persona.planet && (
         <p>
