@@ -14,6 +14,7 @@ function PersonaggiDetail() {
     getPersonaggio(id).then(data => {
       if (data) {
         setPersona(data);
+        console.log(data);
       } else {
         setNotFound(true);
       }
